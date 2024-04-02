@@ -31,6 +31,30 @@ public class CourseRepositoryTest {
 	}
 
 	@Test
+	public void findById() {
+		// Arrange
+		Long id = 1L;
+
+		// Act
+		Course course = courseRepository.findById(id).orElse(null);
+
+		// Print
+		System.out.println(course);
+	}
+
+	@Test
+	public void findByNameContainingIgnoreCase() {
+		// Arrange
+		String name = "Course";
+
+		// Act
+		List<Course> courses = courseRepository.findByNameContainingIgnoreCase(name);
+
+		// Print
+		courses.forEach(System.out::println);
+	}
+
+	@Test
 	public void save_create() {
 		// Arrange
 		Course course = new Course();

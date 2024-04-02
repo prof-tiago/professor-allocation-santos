@@ -43,6 +43,18 @@ public class DepartmentRepositoryTest {
 	}
 
 	@Test
+	public void findByNameContainingIgnoreCase() {
+		// Arrange
+		String name = "Department";
+
+		// Act
+		List<Department> departments = departmentRepository.findByNameContainingIgnoreCase(name);
+
+		// Print
+		departments.forEach(System.out::println);
+	}
+
+	@Test
 	public void save_create() {
 		// Arrange
 		Department department = new Department();
